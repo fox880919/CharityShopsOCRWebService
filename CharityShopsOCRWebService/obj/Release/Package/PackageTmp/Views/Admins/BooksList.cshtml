@@ -1,0 +1,164 @@
+﻿@model CharityShopsOCRWebService.Models.BooksList
+
+@{
+    ViewBag.Title = "BooksList";
+}
+
+<h2>BooksList</h2>
+
+<table class="table">
+
+
+    <tr>
+
+        <th>
+            @Html.DisplayName("ISBN")
+
+
+        </th>
+
+        <th>
+            @Html.DisplayName("Title")
+        </th>
+
+        <th>
+            @Html.DisplayName("Author")
+        </th>
+
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+
+        <th>
+            @Html.DisplayName("Publisher")
+        </th>
+
+        <th>
+            @Html.DisplayName("DatePublished")
+        </th>
+
+        <th>
+            @Html.DisplayName("PageCount")
+        </th>
+
+        <th>
+            @Html.DisplayName("Location")
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.booksList)
+    {
+        String authors = "";
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @foreach (var author in item.Authors)
+                {
+                    authors = authors + author + " / ";
+                }
+
+                Html.DisplayFor(modelItem => authors)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.publisher)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePublished)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PageCount)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelfLocation)
+            </td>
+        </tr>
+    }
+</table>
+
+
+@*<div>
+        <h4>BookTable</h4>
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Isbn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.publisher)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.publisher)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DatePublished)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatePublished)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PageCount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PageCount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ShelfLocation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ShelfLocation)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+@Html.ActionLink("Back to List", "Index")
+    </p>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CharityShopsOCRWebService.Models.BookTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome @Session["Name"].ToString()</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Isbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Authors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatePublished)
+        </th>
+        <th>
+            Pages
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+           Location
+        </th>
+        <th>
+            Image
+        </th>
+        @*<th>
+        @Html.DisplayNameFor(model => model.SmallThumbnailLink)
+    </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isbn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Authors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publisher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatePublished)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShelfLocation)
+        </td>
+        <td>
+            <a href="@item.ThumbnailLink" >Link</a>
+        </td>
+       @* <td>
+        @Html.DisplayFor(modelItem => item.SmallThumbnailLink)
+    </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model CharityShopsOCRWebService.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<div class="panel panel-success">
+    <div class="panel-heading"><h4>Admin login</h4></div>
+    <div class="panel-body">
+        @*<form action="/transcriptRequest" method="POST" >*@
+
+        @using (Html.BeginForm("CheckLogin", "Admins", FormMethod.Post))
+        {
+
+
+            <div class="form-group">
+
+                <label>Username:</label>
+                <input type="text" name="Username" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="Password" class="form-control">
+            </div>
+
+
+            <div class="text-danger"> @Html.ValidationMessage("Credentials")</div>
+
+            <div>
+                <input class="btn btn-success" type="submit" value="login">
+
+            </div>
+
+        }
+
+        @*</form>*@
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
